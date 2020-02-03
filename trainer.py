@@ -95,7 +95,7 @@ class TripletTrainer(object):
                     labels= labels.cuda()
                     data= data.cuda()
 
-                    embeddings=model(data)
+                    embeddings=self.model(data)
                     loss, frac_pos=miner(labels, embeddings)
                     loss.backward( )
                     self.optimizer.step()
@@ -121,7 +121,7 @@ class TripletTrainer(object):
               data= torch.cat( [ datum for datum in   data ], axis = 0 )
               labels= labels.cuda()
               data= data.cuda()
-              embeddings=model(data)
+              embeddings=self.model(data)
               loss, frac_pos=miner(labels, embeddings)
               val_loss+= loss.detach().item()
               loss_history.append(val_loss)
