@@ -116,7 +116,7 @@ class TripletTrainer(object):
           val_loss     = 0.
           val_frac_pos = 0.
           self.model.eval()
-          with tqdm( tri_test_load, desc = 'val' ) as b_pbar:
+          with tqdm( self.tri_test_load, desc = 'val' ) as b_pbar:
             for b, batch in enumerate( b_pbar ):
               labels, data = batch
               labels= torch.cat( [ label for label in labels ], axis = 0 )
