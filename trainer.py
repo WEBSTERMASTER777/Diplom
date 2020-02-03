@@ -112,7 +112,7 @@ class TripletTrainer(object):
                     )
 
       def validating_phase(self):
-          val_n        = len( tri_test_load )
+          val_n        = len( self.tri_test_load )
           val_loss     = 0.
           val_frac_pos = 0.
           self.model.eval()
